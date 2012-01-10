@@ -1,1 +1,25 @@
 PHP class for work with Google Reader API
+
+It works with your feeds in your account in google reader. You can use it for getting and management you feeds
+
+Notice! It uses unofficial Reader API, because official API doesn`t exists
+
+
+see
+http://code.google.com/p/pyrfeed/wiki/GoogleReaderAPI
+http://www.niallkennedy.com/blog/2005/12/google-reader-api.html
+
+
+Example:
+
+$google_reader = new GoogleReaderAPI( 'your@email.com', 'your_password' );
+
+//get first 20 unread items from your reader
+$unread_items = $google_reader ->get_unread(20);
+
+foreach( $unread_items -> items as $item ){
+  //set mark "read"
+  $google_reader -> set_state( $item -> id, 'read' );
+}
+
+You can find more functions in GoogleReaderAPI class
