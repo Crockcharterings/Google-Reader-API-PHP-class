@@ -203,6 +203,15 @@ class GoogleReaderAPI{
             //print_r( $post_fields );
             return $this ->edit_do('edit-tag?client='.$this -> client, $post_fields);
         }
+     
+     public function unset_state( $itemId, $state = 'read'){
+            $post_fields = array(
+                "i" => $itemId,
+                "r" => 'user/-/state/com.google/'.$state,
+            );
+            //print_r( $post_fields );
+            return $this ->edit_do('edit-tag?client='.$this -> client, $post_fields);
+        }
 
      private function clientLogin( $email, $password ){
           
